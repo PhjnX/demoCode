@@ -1,0 +1,22 @@
+{
+  "name": "ai_phi_capstone_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:customer": "npx tailwindcss -i ./src/customer/customer-input.css -o ./asset/css/customer-output.css --watch",
+    "build:admin": "npx tailwindcss -i ./src/admin/views/admin-input.css -o ./asset/css/admin-output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16"
+  },
+  "dependencies": {
+    "flowbite": "^2.5.2"
+  }
+}

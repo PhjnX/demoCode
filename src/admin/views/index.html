@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+    <!-- flowbite -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@1.6.5/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <!-- toast -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+    />
+    <link rel="stylesheet" href="./../../../asset/css/admin-output.css" />
+  </head>
+  <body>
+    <div id="loading">
+      <div class="spinner-border text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <header>
+      <nav class="bg-white border-gray-200 dark:bg-gray-900">
+        <div
+          class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+        >
+          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img
+              src="https://t3.ftcdn.net/jpg/00/65/75/68/360_F_65756860_GUZwzOKNMUU3HldFoIA44qss7ZIrCG8I.jpg"
+              class="h-8"
+              alt="Flowbite Logo"
+            />
+            <span
+              class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+              >Admin Page</span
+            >
+          </a>
+          <div
+            class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
+          >
+            <button
+              type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Login
+            </button>
+            <button
+              data-collapse-toggle="navbar-cta"
+              type="button"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-cta"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="w-5 h-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            id="navbar-cta"
+          >
+            <ul
+              class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+            >
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                  aria-current="page"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  >User Management</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  >Orders</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container mx-auto py-5 mt-20">
+      <main class="bg-white shadow-md rounded-lg p-5">
+        <div
+          class="flex justify-between items-center bg-indigo-800 text-white rounded-lg p-4"
+        >
+          <h3 class="text-lg font-semibold">Phone Management</h3>
+          <button
+            type="button"
+            class="btn btn-banner bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
+            id="addPhoneForm"
+            data-modal-target="#myModal"
+            data-modal-toggle="#myModal"
+          >
+            <i class="fa-solid fa-circle-plus"></i> Add New Phone
+          </button>
+        </div>
+
+        <div class="overflow-x-auto mt-4">
+          <table
+            class="table-auto w-full border-collapse border border-gray-300 text-left"
+          >
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="border px-4 py-2 text-center">#</th>
+                <th class="border px-4 py-2 text-center">Name</th>
+                <th class="border px-4 py-2 text-center">Price</th>
+                <th class="border px-4 py-2 text-center">Photo</th>
+                <th class="border px-4 py-2 text-center">Description</th>
+                <th class="border px-4 py-2 text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody id="tablePhone"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <!-- Main modal -->
+    <div
+      id="#myModal"
+      tabindex="-1"
+      aria-hidden="true"
+      class="hidden fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-50 overflow-y-auto animate-fadeIn"
+    >
+      <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div
+            class="modal-header flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+          >
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+              Add New Phone
+            </h3>
+            <button
+              type="button"
+              class="close text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              data-modal-toggle="#myModal"
+            >
+              <svg
+                class="w-3 h-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <form class="p-4 md:p-5 modal-body">
+            <div class="grid gap-4 mb-4 grid-cols-2">
+              <div class="col-span-2">
+                <label
+                  for="name"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  ><i class="fa-solid fa-mobile-screen-button"></i> Phone
+                  Name</label
+                >
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Enter phone name"
+                  required=""
+                />
+                <span class="sp-thongbao" id="tbname"></span>
+              </div>
+
+              <div class="col-span-2 sm:col-span-1">
+                <label
+                  for="price"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  ><i class="fa-regular fa-dollar-sign"></i> Price</label
+                >
+                <input
+                  type="number"
+                  name="price"
+                  id="price"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="$"
+                  required=""
+                />
+                <span class="sp-thongbao" id="tbprice"></span>
+              </div>
+              <div class="col-span-2 sm:col-span-1">
+                <label
+                  for="screen"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  ><i class="fa-solid fa-mobile-screen-button"></i>
+                  Screen</label
+                >
+                <input
+                  type="text"
+                  name="screen"
+                  id="screen"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Enter screen resolution"
+                  required=""
+                />
+                <span class="sp-thongbao" id="tbscreen"></span>
+              </div>
+              <div class="col-span-2 sm:col-span-1">
+                <label
+                  for="backCamera"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  ><i class="fa-solid fa-camera"></i> Back Camera</label
+                >
+                <input
+                  type="text"
+                  name="backCamera"
+                  id="backCamera"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Enter back resolution"
+                  required=""
+                />
+                <span class="sp-thongbao" id="tbbackCam"></span>
+              </div>
+              <div class="col-span-2 sm:col-span-1">
+                <label
+                  for="frontCamera"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  ><i class="fa-solid fa-camera"></i> Front Camera</label
+                >
+                <input
+                  type="text"
+                  name="frontCamera"
+                  id="frontCamera"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Enter front resolution"
+                  required=""
+                />
+                <span class="sp-thongbao" id="tbfrontCam"></span>
+              </div>
+              <div class="col-span-2">
+                <label
+                  for="image"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  ><i class="fa-solid fa-link"></i> Image Link</label
+                >
+                <input
+                  type="text"
+                  name="name"
+                  id="img"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Enter link image"
+                  required=""
+                />
+                <span class="sp-thongbao" id="tbimg"></span>
+              </div>
+              <div class="col-span-2">
+                <label
+                  for="description"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  ><i class="fa-solid fa-comment"></i> Description</label
+                >
+                <textarea
+                  id="desc"
+                  rows="1"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Write description"
+                ></textarea>
+                <span class="sp-thongbao" id="tbdesc"></span>
+              </div>
+              <div class="col-span-2">
+                <label
+                  for="category"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  ><i class="fa-solid fa-signature"></i> Brand</label
+                >
+                <select
+                  id="type"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                >
+                  <option selected="">Select brand</option>
+                  <option value="TV">Samsung</option>
+                  <option value="PC">Iphone</option>
+                </select>
+                <span class="sp-thongbao" id="tbtype"></span>
+              </div>
+            </div>
+          </form>
+          <!-- Modal footer -->
+          <div
+            class="modal-footer p-4 md:p-5 border-t dark:border-gray-600 flex justify-end"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <!-- axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"
+      integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- toast -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script type="module" src="../controller/admin.js"></script>
+    <!-- flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@1.6.5/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  </body>
+</html>
