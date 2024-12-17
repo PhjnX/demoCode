@@ -26,6 +26,23 @@ class Api {
     });
     return promise;
   }
+
+  getDataById(id) {
+    const promise = axios({
+      url: `https://675a9ba6099e3090dbe54343.mockapi.io/capstone-js/${id}`,
+      method: "GET",
+    });
+    return promise;
+  }
+
+  updateData(product) {
+    const promise = axios({
+      url: `https://675a9ba6099e3090dbe54343.mockapi.io/capstone-js/${product.id}`,
+      method: "PUT",
+      data: product,
+    });
+    return promise;
+  }
 }
 
 export default new Api();

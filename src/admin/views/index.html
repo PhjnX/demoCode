@@ -129,8 +129,8 @@
             type="button"
             class="btn btn-banner bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
             id="addPhoneForm"
-            data-modal-target="#myModal"
-            data-modal-toggle="#myModal"
+            data-modal-target="#myModal1"
+            data-modal-toggle="#myModal1"
           >
             <i class="fa-solid fa-circle-plus"></i> Add New Phone
           </button>
@@ -158,7 +158,7 @@
 
     <!-- Main modal -->
     <div
-      id="#myModal"
+      id="#myModal1"
       tabindex="-1"
       aria-hidden="true"
       class="hidden fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-50 overflow-y-auto animate-fadeIn"
@@ -176,7 +176,7 @@
             <button
               type="button"
               class="close text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-              data-modal-toggle="#myModal"
+              data-modal-toggle="#myModal1"
             >
               <svg
                 class="w-3 h-3"
@@ -334,6 +334,203 @@
           <div
             class="modal-footer p-4 md:p-5 border-t dark:border-gray-600 flex justify-end"
           ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL TAILWINDCSS -->
+    <div
+      id="activeModal"
+      class="relative z-10 hidden"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="fixed inset-0 bg-gray-500/75 transition-opacity"
+        aria-hidden="true"
+      ></div>
+
+      <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div
+          class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+        >
+          <div
+            class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
+          >
+            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+              <div class="sm:flex sm:items-start">
+                <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                  <h3
+                    class="text-base font-semibold text-gray-900"
+                    id="modal-title"
+                  >
+                    Update phone
+                  </h3>
+                  <div class="mt-2">
+                    <form class="p-4 md:p-5 modal-body">
+                      <div class="grid gap-4 mb-4 grid-cols-2">
+                        <div class="col-span-2">
+                          <label
+                            for="name"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            ><i class="fa-solid fa-mobile-screen-button"></i>
+                            Phone Name</label
+                          >
+                          <input
+                            type="text"
+                            id="phoneName"
+                            name="name"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="Enter phone name"
+                            required=""
+                          />
+                          <span class="sp-thongbao" id="tbname"></span>
+                        </div>
+
+                        <div class="col-span-2 sm:col-span-1">
+                          <label
+                            for="price"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            ><i class="fa-regular fa-dollar-sign"></i>
+                            Price</label
+                          >
+                          <input
+                            type="number"
+                            id="phonePrice"
+                            name="price"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="$"
+                            required=""
+                          />
+                          <span class="sp-thongbao" id="tbprice"></span>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                          <label
+                            for="screen"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            ><i class="fa-solid fa-mobile-screen-button"></i>
+                            Screen</label
+                          >
+                          <input
+                            type="text"
+                            id="phoneScreen"
+                            name="screen"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="Enter screen resolution"
+                            required=""
+                          />
+                          <span class="sp-thongbao" id="tbscreen"></span>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                          <label
+                            for="backCamera"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            ><i class="fa-solid fa-camera"></i> Back
+                            Camera</label
+                          >
+                          <input
+                            type="text"
+                            id="phonebackCamera"
+                            name="backCamera"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="Enter back resolution"
+                            required=""
+                          />
+                          <span class="sp-thongbao" id="tbbackCam"></span>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                          <label
+                            for="frontCamera"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            ><i class="fa-solid fa-camera"></i> Front
+                            Camera</label
+                          >
+                          <input
+                            type="text"
+                            id="phonefrontCamera"
+                            name="frontCamera"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="Enter front resolution"
+                            required=""
+                          />
+                          <span class="sp-thongbao" id="tbfrontCam"></span>
+                        </div>
+                        <div class="col-span-2">
+                          <label
+                            for="image"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            ><i class="fa-solid fa-link"></i> Image Link</label
+                          >
+                          <input
+                            type="text"
+                            id="phoneImg"
+                            name="img"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="Enter link image"
+                            required=""
+                          />
+                          <span class="sp-thongbao" id="tbimg"></span>
+                        </div>
+                        <div class="col-span-2">
+                          <label
+                            for="description"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            ><i class="fa-solid fa-comment"></i>
+                            Description</label
+                          >
+                          <textarea
+                            id="phoneDesc"
+                            name="description"
+                            rows="1"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Write description"
+                          ></textarea>
+                          <span class="sp-thongbao" id="tbdesc"></span>
+                        </div>
+                        <div class="col-span-2">
+                          <label
+                            for="category"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            ><i class="fa-solid fa-signature"></i> Brand</label
+                          >
+                          <select
+                            id="phoneType"
+                            name="type"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                          >
+                            <option selected="">Select brand</option>
+                            <option value="TV">Samsung</option>
+                            <option value="PC">Iphone</option>
+                          </select>
+                          <span class="sp-thongbao" id="tbtype"></span>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6"
+            >
+              <button
+                type="button"
+                id="updatePhone"
+                onclick="handleUpdate('${id}')"
+                class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
+              >
+                Update
+              </button>
+              <button
+                type="button"
+                id="closeModal"
+                class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
